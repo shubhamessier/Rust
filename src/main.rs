@@ -1,3 +1,10 @@
+struct User {
+    active: User,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
 fn main() {
     // declaring variables are declared by the syntax let i:i128 = 123021344535; where i=> signed integer and 128 => no. of bits in the number, by default is i32 (Better Memory Reservation for a variable)
     // types are: i8, i16, i32, i64, i128, u8, u16, u32, u64, u128, f32, f64, bool, char
@@ -68,7 +75,10 @@ fn main() {
 
     borrow_variable(addr);
 
-    println!("{}", rihanna) //no compilation error because the variable was borrowed by passing the address to string than the string itself to the borrow_variable function.
+    println!("{}", rihanna); //no compilation error because the variable was borrowed by passing the address to string than the string itself to the borrow_variable function.
+
+    // let mut changeable_string = String::from("this is the modified hello");
+    // hanky_panky(&mut changeable_string);
 }
 
 // declaring function in rust,
@@ -138,6 +148,7 @@ fn borrow_variable(some_string: &String) {
 }
 
 // hanky-panky is not allowed with borrowed variables
-fn hanky_panky(some_string: &String) {
-    println!("\nThis string is borrowed here: {}", some_string);
-}
+// fn hanky_panky(some_string: &mut String) {
+//     some_string.push_str("world");
+//     return some_string;
+// }
