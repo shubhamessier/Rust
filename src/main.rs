@@ -32,7 +32,7 @@ fn main() {
 
     println!(
         "\nThis is the Sum of the Two arbitary numbers here: {}",
-        get_sum(234, 123)
+        get_sum(23412, 123)
     );
 }
 
