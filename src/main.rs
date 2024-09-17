@@ -34,6 +34,19 @@ fn main() {
         "\nThis is the Sum of the Two arbitary numbers here: {}",
         get_sum(23412, 123)
     );
+
+    // calling the heap and stack functions
+
+    stack();
+
+    heap();
+
+    println!(
+        "\nThis is the example for the update string {}",
+        update_string("hello my name is ".to_owned())
+    )
+
+    // Memory Management
 }
 
 // ownership
@@ -47,3 +60,32 @@ fn get_sum(a: i32, b: i32) -> i32 {
 // function logic here
 // return value;
 // }
+
+// heap vs stack, stack stores predicitable variables such as fixed sized arrays, nyumbers etc., in heap strings, vectors are actually stored.
+
+fn stack() {
+    let a: i32 = 10;
+    let b: i32 = 50;
+
+    let c: i32 = a + b;
+
+    println!("\nStack fn: The Sum of {} and {} is {}", a, b, c);
+}
+
+fn heap() {
+    let data = String::from("10101011001100010101");
+    let data2 = String::from("101001011001111000011");
+
+    let combined = format!("{}{}", data, data2);
+
+    println!("\nHeap fn: Combined string is '{}'", combined);
+}
+
+fn update_string(mut s: String) -> String {
+    // let mut s = String::from("Initial string");
+    println!("\nBefore update the string is: {}", s);
+
+    s.push_str(" Shubham Gaur");
+
+    return s;
+}
