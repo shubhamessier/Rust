@@ -1,10 +1,3 @@
-struct User {
-    active: User,
-    username: String,
-    email: String,
-    sign_in_count: u64,
-}
-
 fn main() {
     // declaring variables are declared by the syntax let i:i128 = 123021344535; where i=> signed integer and 128 => no. of bits in the number, by default is i32 (Better Memory Reservation for a variable)
     // types are: i8, i16, i32, i64, i128, u8, u16, u32, u64, u128, f32, f64, bool, char
@@ -79,6 +72,35 @@ fn main() {
 
     // let mut changeable_string = String::from("this is the modified hello");
     // hanky_panky(&mut changeable_string);
+
+    let user1 = User {
+        active: true,
+        username: String::from("shubhamessier"),
+        email: String::from("shubham@xyz.com"),
+        sign_in_count: 1,
+    };
+
+    println!("\nThe email of the user1 is: {}", user1.email);
+    println!("\n{}", user1.sign_in_count);
+    println!("\n{}", user1.username);
+    println!("\n{}", user1.active);
+
+    let rect1 = Rect {
+        height: 30,
+        width: 25,
+    };
+
+    println!(
+        "\nThe area of the implemented rectangle struct is: {}",
+        rect1.area()
+    );
+
+    println!(
+        "\nThe perimeter of the implemented rectangle struct is {}",
+        rect1.perimeter()
+    );
+
+    move_around(Direction::North);
 }
 
 // declaring function in rust,
@@ -87,7 +109,6 @@ fn main() {
 // return value;
 // }
 // heap vs stack, stack stores predicitable variables such as fixed sized arrays, nyumbers etc., in heap strings, vectors are actually stored.
-
 fn get_sum(a: i32, b: i32) -> i32 {
     return a + b;
 }
@@ -152,3 +173,36 @@ fn borrow_variable(some_string: &String) {
 //     some_string.push_str("world");
 //     return some_string;
 // }
+
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+struct Rect {
+    width: u32,
+    height: u32,
+}
+
+impl Rect {
+    fn area(&self) -> u32 {
+        return self.width * self.height;
+    }
+
+    fn perimeter(&self) -> u32 {
+        return 2 * (self.height + self.width);
+    }
+}
+
+enum Direction {
+    North,
+    East,
+    South,
+    West,
+}
+
+fn move_around(direction: Direction) {
+    println!("\n  Moving around..");
+}
